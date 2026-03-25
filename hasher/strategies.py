@@ -20,10 +20,10 @@ class IntegerHasher(IHasher):
         
         # En CPython, el hash del entero se calcula sobre el valor absoluto y luego se aplica el signo.
         # Python % operator devuelve valores positivos para divisores positivos, por lo que usamos abs().
-        sign = -1 if obj < 0 else 1
-        h = (abs(obj) % _HASH_MODULUS) * sign
+        sign = -1 if obj < 0 else 1 # si es negativo, se multiplica por -1
+        h = (abs(obj) % _HASH_MODULUS) * sign # se aplica el módulo y se multiplica por el signo
         
-        if h == -1:
+        if h == -1: # si el hash es -1, se cambia a -2
             h = -2
             
         return h
@@ -61,8 +61,8 @@ class FloatHasher(IHasher):
             
         if math.isinf(obj):
             # El hash de infinito es un valor constante en sys.hash_info
-            inf_val = sys.hash_info.inf if hasattr(sys.hash_info, 'inf') else 314159
-            return inf_val if obj > 0 else -inf_val
+            inf_val = sys.hash_info.inf if hasattr(sys.hash_info, 'inf') else 314159 # si no tiene inf, se usa 314159
+            return inf_val if obj > 0 else -inf_val # si es positivo, se usa inf_val, si es negativo, se usa -inf_val
             
         if obj == 0.0:
             return 0
