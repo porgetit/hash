@@ -1,0 +1,5 @@
+__pycache__/
+pytest_out.txt
+results.json
+run_tests.py
+.pytest_cache/
