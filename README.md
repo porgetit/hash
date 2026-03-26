@@ -1,4 +1,5 @@
 # Custom Python Hasher
+### Autores: Kevin Esguerra Cardona, Davind Julian Torres y Esteban Guapacha
 
 Una implementación de la función hash (`hash()`) de Python desde cero ("a pedal"), utilizando principios de Programación Orientada a Objetos (OOP) y estándares PEP.
 
